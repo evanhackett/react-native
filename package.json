@@ -1,11 +1,11 @@
 {
-  "name": "react-native",
+  "name": "react-native-evanhackett",
   "version": "1000.0.0",
-  "description": "A framework for building native apps using React",
+  "description": "Fork of react-native that fixes a voiceover bug.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:facebook/react-native.git"
+    "url": "git@github.com:evanhackett/react-native.git"
   },
   "engines": {
     "node": ">=4"
