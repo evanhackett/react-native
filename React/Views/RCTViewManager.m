@@ -141,6 +141,26 @@ RCT_CUSTOM_VIEW_PROPERTY(overflow, YGOverflow, RCTView)
     view.clipsToBounds = defaultView.clipsToBounds;
   }
 }
+
+RCT_CUSTOM_VIEW_PROPERTY(importantForAccessibility, NSString, RCTView)
+{
+  NSString *input = [RCTConvert NSString:json];
+
+  if ([input isEqualToString:@"yes"]) {
+    view.isAccessibilityElement = defaultView.isAccessibilityElement;
+    view.accessibilityElementsHidden = false;
+  } else if ([input isEqualToString:@"no"]) {
+    view.isAccessibilityElement = false;
+    view.accessibilityElementsHidden = false;
+  } else if ([input isEqualToString:@"no-hide-descendants"]) {
+    view.isAccessibilityElement = false;
+    view.accessibilityElementsHidden = true;
+  } else {
+    view.isAccessibilityElement = defaultView.isAccessibilityElement;
+    view.accessibilityElementsHidden = defaultView.accessibilityElementsHidden;
+  }
+}
+
 RCT_CUSTOM_VIEW_PROPERTY(shouldRasterizeIOS, BOOL, RCTView)
 {
   view.layer.shouldRasterize = json ? [RCTConvert BOOL:json] : defaultView.layer.shouldRasterize;
